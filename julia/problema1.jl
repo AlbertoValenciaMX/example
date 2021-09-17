@@ -31,3 +31,4 @@ TenC[j])) * (0.0475 * 1.60934 - 0.0203 * VC[i] + 0.304 * sqrt(VC[i])) * 9 / 5 + 
     xlabel("T equivalente en ºC")
     ylabel("Velocidad del aire en km/h")
 end
+plt.show()
