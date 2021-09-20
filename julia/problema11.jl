@@ -17,13 +17,13 @@ incre = 2.5
 using PyPlot
 clearconsole()
 Tci = zeros(n + 1);A = zeros(n + 1)
-for i in 0:n
+for i = 0:n
     global Tci[i + 1] = (Q / (m1 * cp1)) + (Tc0)
     println("Tc", i + 1, "= ", Tci[i + 1])
     global delT = ((Thi - Tc0) - (Th0 - Tci[i + 1])) / log((Thi - Tc0) / (Th0 - Tci[i + 1]))
-    println("Delta T",i + 1,"= ",delT)
+    println("Delta T", i + 1, "= ", delT)
     global A[i + 1] = Q / (U * delT)
-    println("A",i + 1,"= ",A[i + 1])
+    println("A", i + 1, "= ", A[i + 1])
     println()
     global B = B + A[i + 1]
     global Tc0 = Tc0 + incre
