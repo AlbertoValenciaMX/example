@@ -9,15 +9,15 @@ n = 400
 h = (b - a) / n
 t = np.zeros(n + 1)
 C = np.zeros(n + 1)
-C[1] = C0
-t[1] = 0
-for i in range(1,n):
+C[0] = C0
+t[0] = 0
+for i in range(0,n):
     fxy = (-k * (C[i]**2))
     C[i + 1] = C[i] + (h * fxy)
     t[i + 1] = t[i] + h
     print("Iteración "+ str(i) + " [C] = "+ str(C[i + 1])+ " en un tiempo de = "+ str(t[i + 1])+ " fxy = "+ str(fxy))
 
-print("La concentración [C]= ",C[n]," mol/L, corresponde cuando pasan ",t[n]," segundos = ", t[n] / 60," minutos ")
+print("La concentración [C]= "+ str(C[n])," mol/L, corresponde cuando pasan "+str(t[n])+" segundos = "+ str(t[n] / 60)+" minutos ")
 plt.figure(1)
 plt.plot(t,C,label="Concentración")
 plt.scatter(t,C)
