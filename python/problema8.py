@@ -4,7 +4,7 @@ b = 0.03913
 R = 0.008314
 T = 293.15
 n = 1.5
-# Sustituyendo los valores de los datos en la ecuacion de Van Der Waals y simplificando nos queda la funcion siguiente fv=13.5*(v^3)-
+# Sustituyo los valores de los datos en la ecuacion de Van Der Waals y simplificando nos queda la funcion siguiente fv=13.5*(v**3)-
 # 4.44825615*(v*2)+5.483810475*v-0.32180610076 que resolveremos por NewRap
 v = 0.06116
 fv = 1

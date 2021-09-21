@@ -33,9 +33,9 @@ vgt = [14.670, 10.020, 7.6481, 6.2034, 5.2287, 3.9933, 3.2403]
 hft = [191.81, 225.94, 251.42, 271.96, 289.27, 317.62, 340.54]
 hgt = [2583.9, 2598.3, 2608.9, 2617.5, 2624.6, 2636.1, 2645.2]
 n = 7
-v = np.zeros(0, n)
-D = np.zeros(1, n)
-vel = np.zeros(1, n)
+v = np.zeros((0, n))
+D = np.zeros((1, n))
+vel = np.zeros((1, n))
 for i in range(0, n):
     A = 0.1
     v[1, i] = ((1 - x2) * vft[i]) + (x2 * (vgt[i]))
@@ -44,8 +44,8 @@ for i in range(0, n):
 print(v)
 print(D)
 print(vel)
-h = np.zeros(1, n)
-W = np.zeros(1, n)
+h = np.zeros((1, n))
+W = np.zeros((1, n))
 for i in range(0, n):
     h[1, i] = ((1 - x2) * hft[i]) + (x2 * (hgt[i]))
     W[1, i] = (m1 * h1) + (m1 * ((Vel**2) / (1000 * 2))) - \
