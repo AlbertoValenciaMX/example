@@ -39,34 +39,34 @@ B = [[Sy], [Sxy], [Sx2y], [Sx3y]]
 R = np.dot(np.linalg.inv(A), B)
 for i in range(0,n):
     SC3 = SC3 + (((Y[i]) - yp)**2)
-    SC4 = SC4 + (((Y[i]) - R[1] - ((R[2]) * X[i]) - ((X[i]**2) * R[3]) - ((X[i]**3) * R[4]))**2)
+    SC4 = SC4 + (((Y[i]) - R[0] - ((R[1]) * X[i]) - ((X[i]**2) * R[2]) - ((X[i]**3) * R[3]))**2)
 
 YN = np.zeros(n)
 for i in range(0,n):
-    YN[i] = R[1] + (R[2] * X[i]) + (R[3] * (X[i]**2)) + (R[4] * (X[i]**3))
+    YN[i] = R[0] + (R[1] * X[i]) + (R[2] * (X[i]**2)) + (R[3] * (X[i]**3))
 
 plt.plot(np.transpose(X), YN, color="blue", label="Polinomial: Tercer grado")
-plt.leg(bbox_to_anchor=(0.1, 1), loc=2)
+plt.legend(bbox_to_anchor=(0.1, 1), loc=2)
 plt.grid("on")
-print("La función es y= "+str(R[4])+"x**3 + "+str(R[3])+"x**2 + "+str(R[2])+"x + "+str(R[1]))
+print("La función es y= "+str(R[3])+"x**3 + "+str(R[2])+"x**2 + "+str(R[1])+"x + "+str(R[0]))
 rr = (SC3 - SC4) / SC3
 print("El coeficiente de determinacion (R**2) es de ", rr)
 h = 0.001
 def funf(x):
-    f = (R[4] * (x**3)) + (R[3] * (x**2)) + (R[2] * (x)) + (R[1])
+    f = (R[3] * (x**3)) + (R[2] * (x**2)) + (R[1] * (x)) + (R[0])
     return f
 
 fpp = np.zeros(n)
-for i in range(1,n):
-    fpp[i] = ((-funf(X[i] + 2h)) + (8 * funf(X[i] + h)) - (8 * funf(X[i] - h)) + funf(X[i] -2h)) / 12h
+for i in range(0,n):
+    fpp[i] = ((-funf(X[i] + (2*h))) + (8 * funf(X[i] + h)) - (8 * funf(X[i] - h)) + funf(X[i] - (2*h))) / (12*h)
 
 miu = np.zeros(n)
-for i in range(1,n):
+for i in range(0,n):
     miu[i] = fpp[i] * (1 / (Y[i]))
     print("El valor de miu a t= ", X[i], " es de ", miu[i], " h**-1")
 
-print("El valor de miu a t= ", X[3], " h es de ", miu[3], " h**-1")
-print("El valor de miu a t= ", X[5], " h es de ", miu[5], " h**-1")
-print("El valor de miu a t= ", X[7], " h es de ", miu[7], " h**-1")
+print("El valor de miu a t= ", X[2], " h es de ", miu[2], " h**-1")
+print("El valor de miu a t= ", X[4], " h es de ", miu[4], " h**-1")
+print("El valor de miu a t= ", X[6], " h es de ", miu[6], " h**-1")
 
 plt.show()
