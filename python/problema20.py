@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = [[10],[15],[20],[25],[40],[50],[55],[60],[75]]
-y = [[5],[20],[18],[40],[33],[54],[70],[60],[78]]
+x = np.array([[10],[15],[20],[25],[40],[50],[55],[60],[75]])
+y = np.array([[5],[20],[18],[40],[33],[54],[70],[60],[78]])
 plt.scatter(x,y, color="red", label="datos")
 plt.grid("on")
 n = 9
@@ -11,8 +11,8 @@ xi = 0
 yi = 0
 xi2 = 0
 # Sumatorias
-for i in range(1,n):
-    xyi = xyi + (x[i] * y[i])
+for i in range(0,n):
+    xyi = xyi + (np.dot(x[i], y[i]))
     xi = xi + x[i]
     yi = yi + y[i]
     xi2 = xi2 + (x[i]**2)
@@ -34,6 +34,6 @@ mn = 32
 fp = a1 * mn + a0
 print("El esfuerzo de tensión en "+str(mn)+" min es de "+str(fp))
 plt.scatter(mn,fp,color="purple", label="32min")
-plt.leg(bbox_to_anchor=(0.1, 1), loc=2)
+plt.legend(bbox_to_anchor=(0.1, 1), loc=2)
 
 plt.show()
