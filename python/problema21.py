@@ -17,7 +17,7 @@ SinvTc = 0
 Slnk = 0
 SlnTlnk = 0
 SinvTlnk = 0
-for i in range(1,n):
+for i in range(0,n):
     SlnT = SlnT + math.log(T[i])
     SinvT = SinvT + (-1 / T[i])
     SlnTc = SlnTc + ((math.log(T[i]))**2)
@@ -30,10 +30,10 @@ for i in range(1,n):
 A = [[n, SlnT, SinvT],[SlnT, SlnTc, SlnTinvT], [SinvT, SlnTinvT, SinvTc]]
 B = [[Slnk], [SlnTlnk], [SinvTlnk]]
 R = np.dot(np.linalg.inv(A), B)
-plt.leg(bbox_to_anchor=(0.1, 1), loc=2)
+plt.legend(bbox_to_anchor=(0.1, 1), loc=2)
 plt.grid("on")
 
-print("La función es ln(k)= "+str(R[1])+" + "+ str(R[2])+" ln(T) + "+ str(R[3]) +"/T")
-print(" donde b= "* str(R[2])+ ", C= "+ str(R[1])+ ", D= " + str(R[3]))
+print("La función es ln(k)= "+str(R[0])+" + "+ str(R[1])+" ln(T) + "+ str(R[2]) +"/T")
+print(" donde b= "+ str(R[1])+ ", C= "+ str(R[0])+ ", D= " + str(R[2]))
 
 plt.show()
